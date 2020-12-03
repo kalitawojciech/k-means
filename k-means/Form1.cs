@@ -63,9 +63,13 @@ namespace k_srednich
 
         private void kMeansButton_Click(object sender, EventArgs e)
         {
-            StartingDrawFrom startingDrawFrom = new StartingDrawFrom(uploadedData);
+            StartingDrawForm startingDrawFrom = new StartingDrawForm(uploadedData);
             startingDrawFrom.Show();
             startingDrawFrom.DrawStartingChart();
+
+            KMeansChartForm kMeansChartForm = new KMeansChartForm(uploadedData, (int)this.mInput.Value, (int)this.ItersInput.Value);
+            WaitSomeTime();
+            kMeansChartForm.Show();
         }
 
         private static double StringToDouble(string number)
@@ -76,6 +80,11 @@ namespace k_srednich
                 throw new Exception("Nie udało się skonwertować liczby do double");
 
             return result;
+        }
+
+        private async void WaitSomeTime()
+        {
+            await Task.Delay(1000);
         }
     }
 }

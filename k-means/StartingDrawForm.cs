@@ -11,11 +11,11 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace k_srednich
 {
-    public partial class StartingDrawFrom : Form
+    public partial class StartingDrawForm : Form
     {
         private double[][] _uploadedData;
 
-        public StartingDrawFrom(double[][] uploadedData)
+        public StartingDrawForm(double[][] uploadedData)
         {
             _uploadedData = uploadedData;
             InitializeComponent();

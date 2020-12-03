@@ -53,14 +53,20 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="KMeansChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KMeansChartForm.Designer.cs">
+      <DependentUpon>KMeansChartForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyPoint.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StartingDrawFrom.cs">
+    <Compile Include="StartingDrawForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StartingDrawFrom.Designer.cs">
-      <DependentUpon>StartingDrawFrom.cs</DependentUpon>
+    <Compile Include="StartingDrawForm.Designer.cs">
+      <DependentUpon>StartingDrawForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -74,8 +80,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="StartingDrawFrom.resx">
-      <DependentUpon>StartingDrawFrom.cs</DependentUpon>
+    <EmbeddedResource Include="StartingDrawForm.resx">
+      <DependentUpon>StartingDrawForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

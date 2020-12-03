@@ -1,6 +1,6 @@
 ﻿namespace k_srednich
 {
-    partial class StartingDrawFrom
+    partial class StartingDrawForm
     {
         /// <summary>
         /// Required designer variable.
