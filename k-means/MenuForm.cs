@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace k_srednich
 {
-    public partial class Form1 : Form
+    public partial class MenuForm : Form
     {
         public double[][] uploadedData;
 
-        public Form1()
+        public MenuForm()
         {
             InitializeComponent();
         }

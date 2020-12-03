@@ -1,6 +1,6 @@
 ﻿namespace k_srednich
 {
-    partial class Form1
+    partial class MenuForm
     {
         /// <summary>
         /// Required designer variable.
@@ -135,7 +135,7 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "M";
             // 
-            // Form1
+            // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,8 +148,8 @@
             this.Controls.Add(this.fileNameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chooseFileButton);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Menu";
+            this.Text = "Menu";
             ((System.ComponentModel.ISupportInitialize)(this.ItersInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mInput)).EndInit();
             this.ResumeLayout(false);
