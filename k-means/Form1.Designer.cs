@@ -76,7 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 226);
+            this.ClientSize = new System.Drawing.Size(294, 226);
             this.Controls.Add(this.kMeansButton);
             this.Controls.Add(this.fileNameTextBox);
             this.Controls.Add(this.label1);

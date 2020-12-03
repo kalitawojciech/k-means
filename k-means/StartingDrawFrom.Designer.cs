@@ -1,5 +1,4 @@
-﻿
-namespace k_srednich
+﻿namespace k_srednich
 {
     partial class StartingDrawFrom
     {
@@ -29,12 +28,35 @@ namespace k_srednich
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.startingDataChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.startingDataChart)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // startingDataChart
+            // 
+            this.startingDataChart.Location = new System.Drawing.Point(0, 0);
+            this.startingDataChart.Margin = new System.Windows.Forms.Padding(0);
+            this.startingDataChart.Name = "startingDataChart";
+            this.startingDataChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            this.startingDataChart.Size = new System.Drawing.Size(800, 800);
+            this.startingDataChart.TabIndex = 0;
+            this.startingDataChart.Text = "chart1";
+            // 
+            // StartingDrawFrom
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(803, 803);
+            this.Controls.Add(this.startingDataChart);
+            this.Name = "StartingDrawFrom";
             this.Text = "StartingDrawFrom";
+            ((System.ComponentModel.ISupportInitialize)(this.startingDataChart)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataVisualization.Charting.Chart startingDataChart;
     }
 }
