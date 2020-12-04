@@ -68,6 +68,9 @@
     <Compile Include="StartingDrawForm.Designer.cs">
       <DependentUpon>StartingDrawForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="KMeansChartForm.resx">
+      <DependentUpon>KMeansChartForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>

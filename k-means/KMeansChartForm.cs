@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace k_srednich
 {
@@ -24,12 +22,32 @@ namespace k_srednich
             _m = m;
             _iters = iters;
             InitializeComponent();
-            if(m < uploadedPoints.Count())
+        }
+
+        public async Task KMeansFunction()
+        {
+            this.Enabled = false;
+            this.iterationsLeftLabel.Text = _iters.ToString();
+            if (_m < _uploadedPoints.Count())
             {
                 ChooseGroupsCenter();
                 FillPointsAndTheirCenters();
                 FindNearestCenter();
+                FindNewCenters();
+                DrawKMeansChart();
+                await Task.Delay(2000);
+                for (int i = 0; i < _iters; i++)
+                {
+                    this.iterationsLeftLabel.Text = (_iters - i - 1).ToString();
+                    ResetPointsAndTheirCenters();
+                    FindNearestCenter();
+                    FindNewCenters();
+                    DrawKMeansChart();
+                    await Task.Delay(1000);
+                }
             }
+
+            this.Enabled = true;
         }
 
         public void ChooseGroupsCenter()
@@ -68,11 +86,78 @@ namespace k_srednich
             }
         }
 
+        public void FindNewCenters()
+        {
+            for(int i = 0; i < _m; i++)
+            {
+                double sumOfX = 0d;
+                double sumOfY = 0d;
+                int pointsInGroupCount = _pointsAndTheirCenters[i].Count();
+
+                foreach(MyPoint point in _pointsAndTheirCenters[i])
+                {
+                    sumOfX += point.X;
+                    sumOfY += point.Y;
+                }
+
+                _groupsCenters[i] = new MyPoint(sumOfX / (double)pointsInGroupCount, sumOfY / (double)pointsInGroupCount);
+
+            }
+        }
+
+        public void DrawKMeansChart()
+        {
+            kMeansChart.Series.Clear();
+            kMeansChart.ChartAreas.Clear();
+            kMeansChart.Legends.Clear();
+
+            kMeansChart.ChartAreas.Add(new ChartArea(Name = "kMeans"));
+
+            Legend legend = new Legend();
+            legend.Name = "Legend";
+            kMeansChart.Legends.Add(legend);
+
+            for (int i = 0; i < _m; i++)
+            {
+                Series serieOfCetnerPoint = new Series
+                {
+                    Name = $"Center of group number: {i}",
+                    ChartType = 0,
+                    MarkerSize = 20
+                };
+
+                serieOfCetnerPoint.Points.AddXY(_groupsCenters[i].X, _groupsCenters[i].Y);
+                kMeansChart.Series.Add(serieOfCetnerPoint);
+
+                Series serieOfActualGroup = new Series
+                {
+                    Name = $"Group number: {i}"
+                };
+
+                foreach(MyPoint point in _pointsAndTheirCenters[i])
+                {
+                    serieOfActualGroup.Points.AddXY(point.X, point.Y);
+                    serieOfActualGroup.ChartType = 0;
+                    serieOfActualGroup.MarkerSize = 10;
+                }
+
+                kMeansChart.Series.Add(serieOfActualGroup);
+            }
+        }
+
         private void FillPointsAndTheirCenters()
         {
             for(int i = 0; i < _m; i++)
             {
                 _pointsAndTheirCenters.Add(new List<MyPoint>());
+            }
+        }
+
+        private void ResetPointsAndTheirCenters()
+        {
+            for (int i = 0; i < _m; i++)
+            {
+                _pointsAndTheirCenters[i].Clear();
             }
         }
     }

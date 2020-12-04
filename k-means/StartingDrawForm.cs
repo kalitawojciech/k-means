@@ -26,8 +26,13 @@ namespace k_srednich
         {
             startingDataChart.Series.Clear();
             startingDataChart.ChartAreas.Clear();
+            startingDataChart.Legends.Clear();
 
             startingDataChart.ChartAreas.Add(new ChartArea(Name = "StartedChart"));
+
+            Legend legend = new Legend();
+            legend.Name = "Legend";
+            startingDataChart.Legends.Add(legend);
 
             Series serie = new Series
             {

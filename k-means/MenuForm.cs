@@ -9,7 +9,6 @@ namespace k_srednich
 {
     public partial class MenuForm : Form
     {
-        //public double[][] uploadedData;
         public List<MyPoint> uploadedData = new List<MyPoint>();
 
         public MenuForm()
@@ -33,21 +32,15 @@ namespace k_srednich
                     filePath = openFileDialog.FileName;
 
 
-                    string fileData = System.IO.File.ReadAllText(filePath); // wczytujemy treść pliku do zmiennej
-                    string[] rows = fileData.Trim().Split(new char[] { '\n' }); // treść pliku dzielimy wg znaku końca linii, dzięki czemu otrzymamy każdy wiersz w oddzielnej komórce tablicy
-                    //double[][] uploadedData = new double[rows.Length][];   // Tworzymy zmienną, która będzie przechowywała wczytane dane. Tablica będzie miała tyle wierszy ile wierszy było z wczytanego poliku
+                    string fileData = System.IO.File.ReadAllText(filePath);
+                    string[] rows = fileData.Trim().Split(new char[] { '\n' });
+
 
                     for (int i = 0; i < rows.Length; i++)
                     {
-                        string row = rows[i].Trim();     // przypisuję i-ty element tablicy do zmiennej wiersz
-                        string[] cyfry = row.Split(new char[] { ' ' });   // dzielimy wiersz po znaku spacji, dzięki czemu otrzymamy tablicę cyfry, w której każda oddzielna komórka to cyfra z wiersza
+                        string row = rows[i].Trim();
+                        string[] cyfry = row.Split(new char[] { ' ' });
                         cyfry = cyfry.Where(x => x != "").ToArray();
-                        //uploadedData[i] = new double[cyfry.Length];    // Do tablicy w której będą dane finalne dokładamy wiersz w postaci tablicy integerów tak długą jak długa jest tablica cyfry, czyli tyle ile było cyfr w jednym wierszu
-                        //for (int j = 0; j < cyfry.Length; j++)
-                        //{
-                        //    string cyfra = cyfry[j].Trim(); // przypisuję j-tą cyfrę do zmiennej cyfra
-                        //    //uploadedData[i][j] = StringToDouble(cyfra);
-                        //}
 
                         uploadedData.Add(new MyPoint(StringToDouble(cyfry[0].Trim()), StringToDouble(cyfry[1].Trim())));
 
@@ -61,15 +54,15 @@ namespace k_srednich
             }
         }
 
-        private void kMeansButton_Click(object sender, EventArgs e)
+        private async void kMeansButton_Click(object sender, EventArgs e)
         {
             StartingDrawForm startingDrawFrom = new StartingDrawForm(uploadedData);
             startingDrawFrom.Show();
             startingDrawFrom.DrawStartingChart();
 
             KMeansChartForm kMeansChartForm = new KMeansChartForm(uploadedData, (int)this.mInput.Value, (int)this.ItersInput.Value);
-            WaitSomeTime();
             kMeansChartForm.Show();
+            await kMeansChartForm.KMeansFunction();
         }
 
         private static double StringToDouble(string number)
@@ -80,11 +73,6 @@ namespace k_srednich
                 throw new Exception("Nie udało się skonwertować liczby do double");
 
             return result;
-        }
-
-        private async void WaitSomeTime()
-        {
-            await Task.Delay(1000);
         }
     }
 }

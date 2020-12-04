@@ -87,7 +87,7 @@
             0,
             0});
             this.ItersInput.Minimum = new decimal(new int[] {
-            50,
+            10,
             0,
             0,
             0});
@@ -95,7 +95,7 @@
             this.ItersInput.Size = new System.Drawing.Size(200, 22);
             this.ItersInput.TabIndex = 4;
             this.ItersInput.Value = new decimal(new int[] {
-            100,
+            10,
             0,
             0,
             0});
@@ -135,7 +135,7 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "M";
             // 
-            // Menu
+            // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,7 +148,7 @@
             this.Controls.Add(this.fileNameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chooseFileButton);
-            this.Name = "Menu";
+            this.Name = "MenuForm";
             this.Text = "Menu";
             ((System.ComponentModel.ISupportInitialize)(this.ItersInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mInput)).EndInit();

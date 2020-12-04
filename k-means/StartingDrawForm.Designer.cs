@@ -42,13 +42,13 @@
             this.startingDataChart.TabIndex = 0;
             this.startingDataChart.Text = "chart1";
             // 
-            // StartingDrawFrom
+            // StartingDrawForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 803);
             this.Controls.Add(this.startingDataChart);
-            this.Name = "StartingDrawFrom";
+            this.Name = "StartingDrawForm";
             this.Text = "StartingDrawFrom";
             ((System.ComponentModel.ISupportInitialize)(this.startingDataChart)).EndInit();
             this.ResumeLayout(false);
