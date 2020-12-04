@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace k_srednich
 {
-    public class MyPoint
+    public class MyPoint : IComparable
     {
         public double X { get; set; }
 
@@ -16,6 +16,23 @@ namespace k_srednich
         {
             X = x;
             Y = y;
+        }
+
+        public int CompareTo(object obj)
+        {
+            if(obj == null)
+            {
+                return 1;
+            }
+
+            MyPoint otherPoint = obj as MyPoint;
+
+            if(otherPoint.X == this.X)
+            {
+                return this.Y.CompareTo(otherPoint.Y);
+            }
+
+            return this.X.CompareTo(otherPoint.X);
         }
     }
 }

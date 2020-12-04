@@ -1,13 +1,15 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace k_srednich
 {
     public partial class StartingDrawForm : Form
     {
-        private double[][] _uploadedData;
+        //private double[][] _uploadedData;
+        private List<MyPoint> _uploadedData;
 
-        public StartingDrawForm(double[][] uploadedData)
+        public StartingDrawForm(List<MyPoint> uploadedData)
         {
             _uploadedData = uploadedData;
             InitializeComponent();
@@ -34,9 +36,9 @@ namespace k_srednich
                 Name = "Starting chart serie"
             };
 
-            for (int i = 0; i < _uploadedData.Length; i++)
+            foreach(MyPoint point in _uploadedData)
             {
-                serie.Points.AddXY(_uploadedData[i][0], _uploadedData[i][1]);
+                serie.Points.AddXY(point.X, point.Y);
             }
 
             startingDataChart.Series.Add(serie);
