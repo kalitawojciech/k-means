@@ -1,6 +1,6 @@
 # **k-means Algorithm**
 
-Implementation of the **k-means algrithm**
+Implementation of the **k-means algorithm**
 
 #### Technologies used to write the algorithm: 
  * Windows Forms
